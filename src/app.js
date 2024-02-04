@@ -8,6 +8,8 @@ app.use(cors({
     origin: "https://plantalife.vercel.app",
     credentials: true
 }))
+//http://localhost:5173
+//https://plantalife.vercel.app
 
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
