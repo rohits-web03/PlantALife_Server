@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { upload } from "../middlewares/multer.middleware.js";
-import { plantTree } from "../controllers/tree.controller.js";
+import {plantTree} from "../controllers/tree.controller.js";
 
 const router=Router()
 

@@ -2,6 +2,7 @@ import { Router } from "express";
 import { upload } from "../middlewares/multer.middleware.js";
 import { loginUser, registerUser,logoutUser, updateSeeds, updateBalance } from "../controllers/user.controller.js";
 import {verifyJWT} from "../middlewares/auth.middleware.js";
+import { fetchUsersSortedByTreesPlanted } from "../controllers/user.controller.js";
 
 const router=Router()
 
@@ -19,5 +20,7 @@ router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/updateSeeds/:userID").post(updateSeeds);
 
 router.route("/updateBalance").post(updateBalance);
+
+router.route("/sortByTreesPlanted").get(fetchUsersSortedByTreesPlanted);
 
 export default router;

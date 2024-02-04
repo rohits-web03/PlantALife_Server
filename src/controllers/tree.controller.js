@@ -54,6 +54,4 @@ const plantTree = async (req, res) => {
     }
 };
 
-
-
 export {plantTree};

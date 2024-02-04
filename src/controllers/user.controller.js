@@ -184,4 +184,18 @@ const updateBalance=async (req, res) => {
     }
   };
 
-export {registerUser,loginUser,logoutUser,updateSeeds,updateBalance};
+  const fetchUsersSortedByTreesPlanted = async (req, res) => {
+    try {
+        const users = await User.find()
+            .sort({ 'treesPlanted': -1 }) // Sort users by the number of treesPlanted in descending order
+            .populate('treesPlanted'); // Populate the treesPlanted field to get the actual tree objects
+        
+        res.status(200).json({ success: true, data: users });
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+};
+
+
+export {registerUser,loginUser,logoutUser,updateSeeds,updateBalance,fetchUsersSortedByTreesPlanted};
